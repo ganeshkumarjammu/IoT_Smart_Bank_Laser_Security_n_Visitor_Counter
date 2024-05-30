@@ -1,0 +1,43 @@
+#include <DHT.h>
+#include <Wire.h>
+
+#define DHTPIN 23    // DHT11 sensor pin
+#define DHTTYPE DHT11   // DHT11 sensor type
+
+#define FAN_PIN 19    // Pin connected to L298N motor driver for fan control
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+  pinMode(FAN_PIN, OUTPUT);
+}
+
+void loop() {
+  // Read temperature and humidity from DHT11 sensor
+  float temperature = dht.readTemperature();
+  float humidity = dht.readHumidity();
+
+  // Check if any reads failed and exit early (to try again)
+  if (isnan(temperature) || isnan(humidity)) {
+    Serial.println("Failed to read from DHT sensor!");
+    delay(1000);
+    return;
+  }
+
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.print("°C\t");
+  Serial.print("Humidity: ");
+  Serial.print(humidity);
+  Serial.println("%");
+
+  // Map temperature/humidity to fan speed (0-255)
+  int fanSpeed = map(temperature, 0, 40, 0, 255); // Adjust temperature range as needed
+
+  // Control fan speed using PWM
+  analogWrite(FAN_PIN, fanSpeed);
+
+  delay(2000); // Adjust delay as needed
+}
