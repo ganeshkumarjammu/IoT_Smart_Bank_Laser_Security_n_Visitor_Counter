@@ -20,8 +20,12 @@ This project implements an IoT-based security system specifically designed for b
 - [Universal Telegram Bot Library](https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot)
 - [ArduinoJson](https://github.com/bblanchon/ArduinoJson)
 
+
+## ESP32
+![ESP32](https://github.com/ganeshkumarjammu/IoT_Smart_Bank_Laser_Security_n_Visitor_Counter/blob/master/0_IoT_Smart_Bank_SV3/Docs/5_ESP32photo_2024-05-09_13-08-21.jpg?raw=true)
+
 ## Circuit Diagram
-![Circuit Diagram](path_to_circuit_diagram_image)
+![Circuit Diagram](https://github.com/ganeshkumarjammu/IoT_Smart_Bank_Laser_Security_n_Visitor_Counter/blob/master/0_IoT_Smart_Bank_SV3/Docs/2_IoT_Bank_Security_Telegram_bb.png?raw=true)
 
 ## Setup
 
